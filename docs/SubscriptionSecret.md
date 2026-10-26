@@ -1,5 +1,6 @@
 # SubscriptionSecret
 
+Serialize secret of a subscription.  Used only for returning the secret, not reading it because the secret is safely encypted in the db.
 
 ## Properties
 

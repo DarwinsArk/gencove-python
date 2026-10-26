@@ -1,11 +1,12 @@
 # SampleHideUnhide
 
+Serializer for hiding or unhidden a list of samples
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sample_ids** | **List[str]** | List of sample IDs |
+**sample_ids** | **List[UUID]** | List of sample IDs |
 
 ## Example
 

@@ -1,12 +1,13 @@
 # Role
 
+Explicit representation of the roles from the Role enum.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of the role. |
-**permissions** | **List[Optional[str]]** | List of the permissions the role has. |
+**permissions** | **List[object]** | List of the permissions the role has. |
 
 ## Example
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instance_ids** | **List[str]** |  |
+**instance_ids** | **List[UUID]** |  |
 
 ## Example
 

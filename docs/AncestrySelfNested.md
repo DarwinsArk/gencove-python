@@ -1,5 +1,6 @@
 # AncestrySelfNested
 
+Serializer used to nest ancestry data within other ancestry serializer.
 
 ## Properties
 

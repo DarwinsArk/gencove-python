@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
 **created** | **datetime** |  | [optional]
 **response_status** | **int** |  | [optional]
-**notification_event_type** | **str** | notification event type | [optional] [readonly]
+**notification_event_type** | **str** | notification event type | [readonly]
 **response_message** | **str** |  | [optional]
-**payload_url** | **str** | presigned s3 url for the payload content | [optional] [readonly]
+**payload_url** | **str** | presigned s3 url for the payload content | [readonly]
 
 ## Example
 

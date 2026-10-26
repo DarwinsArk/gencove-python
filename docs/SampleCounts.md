@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **scheduled_samples** | **int** |  |
 **succeeded_samples** | **int** |  |
 **failed_samples** | **int** |  |
+**kit_processing_samples** | **int** | Only available for organizations that support kit delivery and processing. |
 
 ## Example
 

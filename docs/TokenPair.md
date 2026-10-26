@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**refresh** | **str** |  | [optional]
-**access** | **str** |  | [optional]
+**refresh** | **str** |  |
+**access** | **str** |  |
 
 ## Example
 

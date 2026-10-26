@@ -6,10 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **expiry_date** | **date** | Last day (UTC) to use the API key, once API key expires clients cannot use it anymore. | [optional]
-**id** | **str** |  | [optional] [readonly]
-**key** | **str** |  | [optional] [readonly]
+**id** | **str** |  | [readonly]
+**key** | **str** |  | [readonly]
 **name** | **str** | A free-form name for the API key. Need not be unique. 50 characters max. |
-**prefix** | **str** |  | [optional] [readonly]
+**prefix** | **str** |  | [readonly]
 **ip_range** | **object** | List of trusted subnets in CIDR notation | [optional]
 
 ## Example

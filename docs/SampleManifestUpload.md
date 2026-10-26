@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sample_manifest** | **str** |  | [optional] [readonly]
+**sample_manifest** | **str** |  |
 
 ## Example
 

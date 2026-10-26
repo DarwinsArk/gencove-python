@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **str** |  |
+**project_id** | **UUID** |  |
 **samples** | [**List[ExistingSample]**](ExistingSample.md) |  |
 **metadata** | **object** |  | [optional]
 

@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
-**last_status** | [**UploadStatusNested**](UploadStatusNested.md) |  | [optional]
+**id** | **UUID** |  | [readonly]
+**last_status** | [**UploadStatusNested**](UploadStatusNested.md) |  | [readonly]
 **file** | [**FileNested**](FileNested.md) |  |
 **created** | **datetime** |  | [optional]
 **destination_path** | **str** | Destination path given by the user as an optional argument | [optional]
-**source** | **str** |  |
-**user** | **str** |  |
-**organization** | **str** |  |
+**source** | [**SourceEnum**](SourceEnum.md) |  |
+**user** | **UUID** |  | [optional]
+**organization** | **UUID** |  |
 
 ## Example
 

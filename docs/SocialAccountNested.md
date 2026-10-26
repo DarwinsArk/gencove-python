@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
 **created** | **datetime** |  | [optional]
 **social_account_id** | **str** |  |
 **auth_time** | **datetime** |  |

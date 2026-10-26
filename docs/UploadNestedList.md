@@ -1,15 +1,15 @@
 # UploadNestedList
 
-Uploaded fastq
+Used in sample sheet creation.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**upload** | **str** |  |
+**upload** | **UUID** |  |
 **destination_path** | **str** | Destination path given by the user as an optional argument | [optional]
-**last_status** | [**UploadStatusNested**](UploadStatusNested.md) |  | [optional]
-**source_url** | **str** |  | [optional] [readonly]
+**last_status** | [**UploadStatusNested**](UploadStatusNested.md) |  | [readonly]
+**source_url** | **str** |  | [readonly]
 
 ## Example
 

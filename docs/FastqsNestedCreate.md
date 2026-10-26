@@ -1,5 +1,6 @@
 # FastqsNestedCreate
 
+Serialized multiple uploads.models.Uploads objects with r1 and r2 names hardcoded.
 
 ## Properties
 

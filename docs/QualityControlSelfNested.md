@@ -1,5 +1,6 @@
 # QualityControlSelfNested
 
+Serializer used to nest QC data within other QC serializer.
 
 ## Properties
 
@@ -8,7 +9,7 @@ Name | Type | Description | Notes
 **value_expected** | **float** |  | [optional]
 **value_measured** | **float** |  | [optional]
 **value_string** | **str** |  | [optional]
-**status** | **str** |  |
+**status** | [**QualityControlSelfNestedStatusEnum**](QualityControlSelfNestedStatusEnum.md) |  |
 
 ## Example
 

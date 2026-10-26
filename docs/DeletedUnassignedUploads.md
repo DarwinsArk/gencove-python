@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**upload_ids** | **List[str]** |  |
+**upload_ids** | **List[UUID]** |  |
 
 ## Example
 

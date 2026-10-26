@@ -1,11 +1,12 @@
 # ProjectHideUnhide
 
+Serializer for hiding or unhiding a list of projects
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_ids** | **List[str]** | List of project IDs |
+**project_ids** | **List[UUID]** | List of project IDs |
 
 ## Example
 

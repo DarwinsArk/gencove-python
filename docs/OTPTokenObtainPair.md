@@ -1,5 +1,6 @@
 # OTPTokenObtainPair
 
+Mixin to add token validation to serializers.
 
 ## Properties
 

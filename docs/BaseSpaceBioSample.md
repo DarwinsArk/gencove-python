@@ -1,5 +1,6 @@
 # BaseSpaceBioSample
 
+Gencove representation of BaseSpace biosample.
 
 ## Properties
 

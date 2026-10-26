@@ -1,12 +1,13 @@
 # UserCreate
 
+Adding name as an optional field during registration.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **str** |  |
-**id** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
 **password** | **str** |  |
 **name** | **str** |  | [optional]
 **invitation_token** | **str** |  | [optional]

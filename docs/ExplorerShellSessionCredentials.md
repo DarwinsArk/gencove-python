@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instance_id** | **str** |  |
+**instance_id** | **UUID** |  |
 
 ## Example
 

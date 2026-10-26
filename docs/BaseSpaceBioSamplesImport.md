@@ -1,11 +1,12 @@
 # BaseSpaceBioSamplesImport
 
+Project and accompanying BaseSpace biosamples to be imported.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_id** | **str** |  |
+**project_id** | **UUID** |  |
 **basespace_bio_samples** | [**List[BaseSpaceBioSampleNested]**](BaseSpaceBioSampleNested.md) |  |
 **metadata** | **object** |  | [optional]
 

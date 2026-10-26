@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **revoked** | **bool** | If the API key is revoked, clients cannot use it anymore. (This cannot be undone.) | [optional]
 **id** | **str** |  |
 **name** | **str** | A free-form name for the API key. Need not be unique. 50 characters max. |
-**prefix** | **str** |  | [optional] [readonly]
-**expiry_date** | **date** | Last day (UTC) to use the API key, once API key expires clients cannot use it anymore. | [optional] [readonly]
-**has_expired** | **str** |  | [optional] [readonly]
+**prefix** | **str** |  | [readonly]
+**expiry_date** | **date** | Last day (UTC) to use the API key, once API key expires clients cannot use it anymore. | [readonly]
+**has_expired** | **str** |  | [readonly]
 **ip_range** | **object** | List of trusted subnets in CIDR notation | [optional]
 
 ## Example

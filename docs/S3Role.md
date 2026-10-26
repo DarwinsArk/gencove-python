@@ -1,11 +1,12 @@
 # S3Role
 
+Role ARN for S3 imports serializer.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**role_arn** | **str** |  |
+**role_arn** | [**S3RoleRoleArn**](S3RoleRoleArn.md) |  |
 
 ## Example
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
 **version** | **str** |  |
 **capabilities** | [**List[PipelineCapabilities]**](PipelineCapabilities.md) |  |
 

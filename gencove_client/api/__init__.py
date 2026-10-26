@@ -1,10 +1,11 @@
 # flake8: noqa
 
 # import apis into api package
+from gencove_client.api.array_api import ArrayApi
 from gencove_client.api.basespace_api import BasespaceApi
 from gencove_client.api.batch_api import BatchApi
 from gencove_client.api.billing_api import BillingApi
-from gencove_client.api.exit_api import ExitApi
+from gencove_client.api.cost_api import CostApi
 from gencove_client.api.explorer_api import ExplorerApi
 from gencove_client.api.file_api import FileApi
 from gencove_client.api.firstmile_api import FirstmileApi
@@ -12,6 +13,7 @@ from gencove_client.api.invitation_api import InvitationApi
 from gencove_client.api.jwt_api import JwtApi
 from gencove_client.api.mfa_api import MfaApi
 from gencove_client.api.notification_api import NotificationApi
+from gencove_client.api.openapi_json_api import OpenapiJsonApi
 from gencove_client.api.organization_api import OrganizationApi
 from gencove_client.api.pipeline_api import PipelineApi
 from gencove_client.api.project_api import ProjectApi

@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **counts** | [**SampleCounts**](SampleCounts.md) |  |
 **total_size** | **int** |  |
-**failed_counts** | **Dict[str, Optional[str]]** |  |
-**failed_qc_counts** | **Dict[str, Optional[str]]** |  |
+**failed_counts** | **Dict[str, object]** |  |
+**failed_qc_counts** | **Dict[str, object]** |  |
 
 ## Example
 

@@ -1,5 +1,6 @@
 # UploadPostDataCreate
 
+Used for both normal post data and presigned post data.
 
 ## Properties
 

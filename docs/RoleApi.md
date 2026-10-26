@@ -1,16 +1,14 @@
 # gencove_client.RoleApi
 
-All URIs are relative to *https://api.gencove.com/api/v2*
+All URIs are relative to *https://api.gencove.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**roles_list**](RoleApi.md#roles_list) | **GET** /roles/{applies_to} |
+[**roles_list**](RoleApi.md#roles_list) | **GET** /api/v2/roles/{applies_to} |
 
 
 # **roles_list**
-> RolesList200Response roles_list(applies_to)
-
-
+> PaginatedRoleList roles_list(applies_to, limit=limit, offset=offset)
 
 Method used to retrieve paginated roles.
 
@@ -21,14 +19,14 @@ Method used to retrieve paginated roles.
 
 ```python
 import gencove_client
-from gencove_client.models.roles_list200_response import RolesList200Response
+from gencove_client.models.paginated_role_list import PaginatedRoleList
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -53,9 +51,11 @@ with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.RoleApi(api_client)
     applies_to = 'applies_to_example' # str | Filter roles by permission being applied to.
+    limit = 56 # int | Number of results to return per page. (optional)
+    offset = 56 # int | The initial index from which to return the results. (optional)
 
     try:
-        api_response = api_instance.roles_list(applies_to)
+        api_response = api_instance.roles_list(applies_to, limit=limit, offset=offset)
         print("The response of RoleApi->roles_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -70,10 +70,12 @@ with gencove_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applies_to** | **str**| Filter roles by permission being applied to. |
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**RolesList200Response**](RolesList200Response.md)
+[**PaginatedRoleList**](PaginatedRoleList.md)
 
 ### Authorization
 

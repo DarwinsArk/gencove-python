@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
 **status** | **str** |  |
 **created** | **datetime** |  | [optional]
-**actor** | [**InvitationActor**](InvitationActor.md) |  | [optional]
+**actor** | [**InvitationActor**](InvitationActor.md) |  | [readonly]
 
 ## Example
 

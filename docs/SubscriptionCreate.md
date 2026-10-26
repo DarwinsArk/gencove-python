@@ -1,14 +1,15 @@
 # SubscriptionCreate
 
+Generic Subscription serializer without scope object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
-**name** | **str** |  | [optional] [default to 'Subscription 20250323002056 UTC']
+**id** | **UUID** |  | [readonly]
+**name** | **str** |  | [optional]
 **target** | **str** | URL if webhook, e-mail address if email |
-**event_types** | **List[str]** |  |
+**event_types** | [**List[EventTypesEnum]**](EventTypesEnum.md) |  |
 
 ## Example
 

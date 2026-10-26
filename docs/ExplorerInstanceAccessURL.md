@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  |
+**id** | **UUID** |  |
 **access_token_expiration** | **int** | Number of seconds before the URL expires. Maximum is 86400 seconds. | [optional]
 
 ## Example

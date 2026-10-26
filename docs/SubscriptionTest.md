@@ -1,11 +1,12 @@
 # SubscriptionTest
 
+Used to accept requests to test subscriptions.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**event_type** | **str** |  | [optional]
+**event_type** | [**EventTypeEnum**](EventTypeEnum.md) |  | [optional]
 **retry** | **bool** |  | [optional] [default to False]
 
 ## Example

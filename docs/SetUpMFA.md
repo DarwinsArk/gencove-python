@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**device_type** | **str** |  |
-**secret** | **str** | Authenticator secret, used when device_type is \&quot;generator\&quot; | [optional] [readonly]
-**config_url** | **str** | Url to build the QR code image, used when device_type is \&quot;generator\&quot; | [optional] [readonly]
+**device_type** | [**DeviceTypeEnum**](DeviceTypeEnum.md) |  |
+**secret** | **str** | Authenticator secret, used when device_type is \&quot;generator\&quot; | [readonly]
+**config_url** | **str** | Url to build the QR code image, used when device_type is \&quot;generator\&quot; | [readonly]
 
 ## Example
 

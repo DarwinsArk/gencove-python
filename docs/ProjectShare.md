@@ -5,15 +5,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
-**project** | **str** |  |
-**shared_with_org** | **str** |  | [optional] [readonly]
-**shared_with_org_name** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
+**project** | **UUID** |  |
+**shared_with_org** | **str** |  | [readonly]
+**shared_with_org_name** | **str** |  | [readonly]
 **shared_with_user_emails** | **List[str]** |  |
-**shared_with_user_email** | **str** |  | [optional] [readonly]
-**shared_by_user_email** | **str** |  | [optional] [readonly]
-**share_level** | **str** |  |
-**last_status** | [**ProjectShareStatus**](ProjectShareStatus.md) |  | [optional]
+**shared_with_user_email** | **str** |  | [readonly]
+**shared_by_user_email** | **str** |  | [readonly]
+**share_level** | [**ShareLevelEnum**](ShareLevelEnum.md) |  |
+**last_status** | [**ProjectShareStatus**](ProjectShareStatus.md) |  | [readonly]
 
 ## Example
 

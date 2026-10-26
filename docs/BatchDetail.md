@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
 **name** | **str** |  | [optional]
-**batch_type** | **str** |  | [optional] [readonly]
-**sample_ids** | **List[str]** |  |
-**last_status** | [**BatchStatusNested**](BatchStatusNested.md) |  | [optional]
-**files** | [**List[BatchFileNested]**](BatchFileNested.md) | Batch files | [optional] [readonly]
+**batch_type** | **str** | Key from pipeline config | [readonly]
+**sample_ids** | **List[UUID]** |  |
+**last_status** | [**BatchStatusNested**](BatchStatusNested.md) |  | [readonly]
+**files** | [**List[BatchFileNested]**](BatchFileNested.md) | Batch files | [readonly]
 
 ## Example
 

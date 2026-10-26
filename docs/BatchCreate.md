@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  |
 **batch_type** | **str** |  |
-**sample_ids** | **List[str]** | List of sample IDs or if empty all available samples will be used |
+**sample_ids** | **List[UUID]** | List of sample IDs or if empty all available samples will be used |
 
 ## Example
 

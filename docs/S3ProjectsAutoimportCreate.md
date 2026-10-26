@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
 **topic_arn** | **str** | SNS Topic where events of added samples will be received. | [optional]
 
 ## Example

@@ -1,11 +1,12 @@
 # S3ExternalID
 
+External ID for S3 imports serializer.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**external_id** | **str** |  | [optional] [readonly]
+**external_id** | **UUID** |  | [readonly]
 
 ## Example
 

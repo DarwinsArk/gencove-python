@@ -1,16 +1,14 @@
 # gencove_client.BatchApi
 
-All URIs are relative to *https://api.gencove.com/api/v2*
+All URIs are relative to *https://api.gencove.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**batches_read**](BatchApi.md#batches_read) | **GET** /batches/{batch_id} |
+[**batches_retrieve**](BatchApi.md#batches_retrieve) | **GET** /api/v2/batches/{batch_id} |
 
 
-# **batches_read**
-> BatchDetail batches_read(batch_id)
-
-
+# **batches_retrieve**
+> BatchDetail batches_retrieve(batch_id)
 
 ### Example
 
@@ -23,10 +21,10 @@ from gencove_client.models.batch_detail import BatchDetail
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -50,14 +48,14 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.BatchApi(api_client)
-    batch_id = 'batch_id_example' # str |
+    batch_id = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID |
 
     try:
-        api_response = api_instance.batches_read(batch_id)
-        print("The response of BatchApi->batches_read:\n")
+        api_response = api_instance.batches_retrieve(batch_id)
+        print("The response of BatchApi->batches_retrieve:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling BatchApi->batches_read: %s\n" % e)
+        print("Exception when calling BatchApi->batches_retrieve: %s\n" % e)
 ```
 
 
@@ -67,7 +65,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **batch_id** | **str**|  |
+ **batch_id** | **UUID**|  |
 
 ### Return type
 

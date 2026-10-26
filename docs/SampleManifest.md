@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
 **file_name** | **str** |  |
-**file** | **str** |  | [optional] [readonly]
-**project** | **str** |  | [optional] [readonly]
+**file** | **str** |  | [readonly]
+**project** | **UUID** |  | [readonly]
 **created** | **datetime** |  | [optional]
 
 ## Example

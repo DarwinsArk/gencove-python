@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
-**email** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
+**email** | **str** |  | [readonly]
 **name** | **str** |  | [optional]
-**uploads_enabled** | **str** |  | [optional] [readonly]
-**explorer_enabled** | **str** |  | [optional] [readonly]
-**created** | **datetime** |  | [optional] [readonly]
-**is_support** | **bool** | Designates whether this user should be treated as a support. | [optional] [readonly]
+**uploads_enabled** | **str** |  | [readonly]
+**explorer_enabled** | **str** |  | [readonly]
+**created** | **datetime** |  | [readonly]
+**is_support** | **bool** | Designates whether this user should be treated as a support. | [readonly]
 
 ## Example
 

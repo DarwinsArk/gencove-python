@@ -1,22 +1,20 @@
 # gencove_client.OrganizationApi
 
-All URIs are relative to *https://api.gencove.com/api/v2*
+All URIs are relative to *https://api.gencove.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**organization_monthly_usage_report_list**](OrganizationApi.md#organization_monthly_usage_report_list) | **GET** /organization-monthly-usage-report/ |
-[**organization_partial_update**](OrganizationApi.md#organization_partial_update) | **PATCH** /organization/ |
-[**organization_read**](OrganizationApi.md#organization_read) | **GET** /organization/ |
-[**organization_roles_read**](OrganizationApi.md#organization_roles_read) | **GET** /organization-roles/{role_id} |
-[**organization_users_create**](OrganizationApi.md#organization_users_create) | **POST** /organization-users/ |
-[**organization_users_list**](OrganizationApi.md#organization_users_list) | **GET** /organization-users/ |
-[**organization_users_partial_update**](OrganizationApi.md#organization_users_partial_update) | **PATCH** /organization-users/{user_id} |
+[**organization_monthly_usage_report_retrieve**](OrganizationApi.md#organization_monthly_usage_report_retrieve) | **GET** /api/v2/organization-monthly-usage-report/ |
+[**organization_partial_update**](OrganizationApi.md#organization_partial_update) | **PATCH** /api/v2/organization/ |
+[**organization_retrieve**](OrganizationApi.md#organization_retrieve) | **GET** /api/v2/organization/ |
+[**organization_roles_retrieve**](OrganizationApi.md#organization_roles_retrieve) | **GET** /api/v2/organization-roles/{role_id} |
+[**organization_users_create**](OrganizationApi.md#organization_users_create) | **POST** /api/v2/organization-users/ |
+[**organization_users_list**](OrganizationApi.md#organization_users_list) | **GET** /api/v2/organization-users/ |
+[**organization_users_partial_update**](OrganizationApi.md#organization_users_partial_update) | **PATCH** /api/v2/organization-users/{user_id} |
 
 
-# **organization_monthly_usage_report_list**
-> organization_monthly_usage_report_list(var_from=var_from, to=to)
-
-
+# **organization_monthly_usage_report_retrieve**
+> organization_monthly_usage_report_retrieve(var_from=var_from, to=to)
 
 Retrieve CSV monthly usage report. Optionally specify a date range.
 
@@ -30,10 +28,10 @@ import gencove_client
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -61,9 +59,9 @@ with gencove_client.ApiClient(configuration) as api_client:
     to = 'to_example' # str | End date for report. Format is YYYY-MM, e.g. 2023-05. Must supply both 'from' and 'to' parameters. (optional)
 
     try:
-        api_instance.organization_monthly_usage_report_list(var_from=var_from, to=to)
+        api_instance.organization_monthly_usage_report_retrieve(var_from=var_from, to=to)
     except Exception as e:
-        print("Exception when calling OrganizationApi->organization_monthly_usage_report_list: %s\n" % e)
+        print("Exception when calling OrganizationApi->organization_monthly_usage_report_retrieve: %s\n" % e)
 ```
 
 
@@ -93,14 +91,12 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **organization_partial_update**
-> Organization organization_partial_update(data)
-
-
+> Organization organization_partial_update(patched_organization=patched_organization)
 
 Update organization details
 
@@ -112,13 +108,14 @@ Update organization details
 ```python
 import gencove_client
 from gencove_client.models.organization import Organization
+from gencove_client.models.patched_organization import PatchedOrganization
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -142,10 +139,10 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.OrganizationApi(api_client)
-    data = gencove_client.Organization() # Organization |
+    patched_organization = gencove_client.PatchedOrganization() # PatchedOrganization |  (optional)
 
     try:
-        api_response = api_instance.organization_partial_update(data)
+        api_response = api_instance.organization_partial_update(patched_organization=patched_organization)
         print("The response of OrganizationApi->organization_partial_update:\n")
         pprint(api_response)
     except Exception as e:
@@ -159,7 +156,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**Organization**](Organization.md)|  |
+ **patched_organization** | [**PatchedOrganization**](PatchedOrganization.md)|  | [optional]
 
 ### Return type
 
@@ -171,7 +168,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
@@ -182,10 +179,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **organization_read**
-> Organization organization_read()
-
-
+# **organization_retrieve**
+> Organization organization_retrieve()
 
 Fetch organization details
 
@@ -200,10 +195,10 @@ from gencove_client.models.organization import Organization
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -229,11 +224,11 @@ with gencove_client.ApiClient(configuration) as api_client:
     api_instance = gencove_client.OrganizationApi(api_client)
 
     try:
-        api_response = api_instance.organization_read()
-        print("The response of OrganizationApi->organization_read:\n")
+        api_response = api_instance.organization_retrieve()
+        print("The response of OrganizationApi->organization_retrieve:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OrganizationApi->organization_read: %s\n" % e)
+        print("Exception when calling OrganizationApi->organization_retrieve: %s\n" % e)
 ```
 
 
@@ -263,10 +258,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **organization_roles_read**
-> UserRoleObject organization_roles_read(role_id)
-
-
+# **organization_roles_retrieve**
+> UserRoleObject organization_roles_retrieve(role_id)
 
 ### Example
 
@@ -279,10 +272,10 @@ from gencove_client.models.user_role_object import UserRoleObject
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -306,14 +299,14 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.OrganizationApi(api_client)
-    role_id = 'role_id_example' # str |
+    role_id = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID |
 
     try:
-        api_response = api_instance.organization_roles_read(role_id)
-        print("The response of OrganizationApi->organization_roles_read:\n")
+        api_response = api_instance.organization_roles_retrieve(role_id)
+        print("The response of OrganizationApi->organization_roles_retrieve:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OrganizationApi->organization_roles_read: %s\n" % e)
+        print("Exception when calling OrganizationApi->organization_roles_retrieve: %s\n" % e)
 ```
 
 
@@ -323,7 +316,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **role_id** | **str**|  |
+ **role_id** | **UUID**|  |
 
 ### Return type
 
@@ -347,9 +340,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **organization_users_create**
-> UserRoleObject organization_users_create(data)
-
-
+> UserRoleObject organization_users_create(user_role_object_create)
 
 ### Example
 
@@ -363,10 +354,10 @@ from gencove_client.models.user_role_object_create import UserRoleObjectCreate
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -390,10 +381,10 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.OrganizationApi(api_client)
-    data = gencove_client.UserRoleObjectCreate() # UserRoleObjectCreate |
+    user_role_object_create = gencove_client.UserRoleObjectCreate() # UserRoleObjectCreate |
 
     try:
-        api_response = api_instance.organization_users_create(data)
+        api_response = api_instance.organization_users_create(user_role_object_create)
         print("The response of OrganizationApi->organization_users_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -407,7 +398,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**UserRoleObjectCreate**](UserRoleObjectCreate.md)|  |
+ **user_role_object_create** | [**UserRoleObjectCreate**](UserRoleObjectCreate.md)|  |
 
 ### Return type
 
@@ -419,7 +410,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
@@ -431,9 +422,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **organization_users_list**
-> OrganizationUsersList200Response organization_users_list(search=search)
-
-
+> PaginatedOrganizationUserList organization_users_list(limit=limit, offset=offset, search=search)
 
 Get organization users.
 
@@ -444,14 +433,14 @@ Get organization users.
 
 ```python
 import gencove_client
-from gencove_client.models.organization_users_list200_response import OrganizationUsersList200Response
+from gencove_client.models.paginated_organization_user_list import PaginatedOrganizationUserList
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -475,10 +464,12 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.OrganizationApi(api_client)
+    limit = 56 # int | Number of results to return per page. (optional)
+    offset = 56 # int | The initial index from which to return the results. (optional)
     search = 'search_example' # str | Search users by name, email or id (optional)
 
     try:
-        api_response = api_instance.organization_users_list(search=search)
+        api_response = api_instance.organization_users_list(limit=limit, offset=offset, search=search)
         print("The response of OrganizationApi->organization_users_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -492,11 +483,13 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
  **search** | **str**| Search users by name, email or id | [optional]
 
 ### Return type
 
-[**OrganizationUsersList200Response**](OrganizationUsersList200Response.md)
+[**PaginatedOrganizationUserList**](PaginatedOrganizationUserList.md)
 
 ### Authorization
 
@@ -516,9 +509,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **organization_users_partial_update**
-> OrganizationUser organization_users_partial_update(user_id, data)
-
-
+> OrganizationUser organization_users_partial_update(user_id, patched_organization_user=patched_organization_user)
 
 ### Example
 
@@ -528,13 +519,14 @@ Name | Type | Description  | Notes
 ```python
 import gencove_client
 from gencove_client.models.organization_user import OrganizationUser
+from gencove_client.models.patched_organization_user import PatchedOrganizationUser
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -558,11 +550,11 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.OrganizationApi(api_client)
-    user_id = 'user_id_example' # str |
-    data = gencove_client.OrganizationUser() # OrganizationUser |
+    user_id = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID |
+    patched_organization_user = gencove_client.PatchedOrganizationUser() # PatchedOrganizationUser |  (optional)
 
     try:
-        api_response = api_instance.organization_users_partial_update(user_id, data)
+        api_response = api_instance.organization_users_partial_update(user_id, patched_organization_user=patched_organization_user)
         print("The response of OrganizationApi->organization_users_partial_update:\n")
         pprint(api_response)
     except Exception as e:
@@ -576,8 +568,8 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | **str**|  |
- **data** | [**OrganizationUser**](OrganizationUser.md)|  |
+ **user_id** | **UUID**|  |
+ **patched_organization_user** | [**PatchedOrganizationUser**](PatchedOrganizationUser.md)|  | [optional]
 
 ### Return type
 
@@ -589,7 +581,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details

@@ -1,11 +1,12 @@
 # ProjectShareExit
 
+Serializer for exiting multiple project shares
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project_ids** | **List[str]** | List of project IDs to exit |
+**project_ids** | **List[UUID]** | List of project IDs to exit |
 
 ## Example
 

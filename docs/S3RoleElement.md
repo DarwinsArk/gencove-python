@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **role_arn** | **str** |  | [optional]
-**external_id** | **str** |  | [optional]
-**aws_region** | **str** |  | [optional] [readonly]
+**external_id** | **UUID** |  | [optional]
+**aws_region** | **str** |  | [readonly]
 **s3_bucket** | **str** |  | [optional]
 **s3_prefix** | **str** |  | [optional]
 

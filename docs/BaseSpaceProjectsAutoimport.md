@@ -1,12 +1,13 @@
 # BaseSpaceProjectsAutoimport
 
+Gencove representation of BaseSpace projects to be imported periodically.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
-**project_id** | **str** |  |
+**id** | **UUID** |  | [readonly]
+**project_id** | **UUID** |  |
 **identifier** | **str** |  |
 **metadata** | **object** |  | [optional]
 

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **client_id** | **str** |  | [optional]
-**sample_id** | **str** |  |
+**sample_id** | **UUID** |  |
 
 ## Example
 

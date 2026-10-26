@@ -1,13 +1,15 @@
 # S3URIImport
 
+S3 URI import serializer.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **s3_uri** | **str** |  |
-**project_id** | **str** |  |
+**project_id** | **UUID** |  |
 **metadata** | **object** |  | [optional]
+**input_format** | [**InputFormatEnum**](InputFormatEnum.md) |  | [optional]
 
 ## Example
 

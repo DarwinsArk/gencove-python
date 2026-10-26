@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
 **destination_path** | **str** |  | [optional]
-**s3** | [**S3ObjectNested**](S3ObjectNested.md) |  | [optional]
-**last_status** | [**UploadStatusNested**](UploadStatusNested.md) |  | [optional]
+**s3** | [**S3ObjectNested**](S3ObjectNested.md) |  | [readonly]
+**last_status** | [**UploadStatusNested**](UploadStatusNested.md) |  | [readonly]
 **source** | **str** |  |
-**source_url** | **str** |  | [optional] [readonly]
+**source_url** | **str** |  | [readonly]
 
 ## Example
 

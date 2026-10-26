@@ -1,19 +1,17 @@
 # gencove_client.MfaApi
 
-All URIs are relative to *https://api.gencove.com/api/v2*
+All URIs are relative to *https://api.gencove.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**mfa_disable_delete**](MfaApi.md#mfa_disable_delete) | **DELETE** /mfa-disable/ |
-[**mfa_setup_create**](MfaApi.md#mfa_setup_create) | **POST** /mfa-setup/ |
-[**mfa_status_list**](MfaApi.md#mfa_status_list) | **GET** /mfa-status/ |
-[**mfa_validate_create**](MfaApi.md#mfa_validate_create) | **POST** /mfa-validate/ |
+[**mfa_disable_destroy**](MfaApi.md#mfa_disable_destroy) | **DELETE** /api/v2/mfa-disable/ |
+[**mfa_setup_create**](MfaApi.md#mfa_setup_create) | **POST** /api/v2/mfa-setup/ |
+[**mfa_status_retrieve**](MfaApi.md#mfa_status_retrieve) | **GET** /api/v2/mfa-status/ |
+[**mfa_validate_create**](MfaApi.md#mfa_validate_create) | **POST** /api/v2/mfa-validate/ |
 
 
-# **mfa_disable_delete**
-> mfa_disable_delete()
-
-
+# **mfa_disable_destroy**
+> mfa_disable_destroy()
 
 Disable MFA for your account.
 
@@ -27,10 +25,10 @@ import gencove_client
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -56,9 +54,9 @@ with gencove_client.ApiClient(configuration) as api_client:
     api_instance = gencove_client.MfaApi(api_client)
 
     try:
-        api_instance.mfa_disable_delete()
+        api_instance.mfa_disable_destroy()
     except Exception as e:
-        print("Exception when calling MfaApi->mfa_disable_delete: %s\n" % e)
+        print("Exception when calling MfaApi->mfa_disable_destroy: %s\n" % e)
 ```
 
 
@@ -84,14 +82,12 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** |  |  -  |
+**204** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **mfa_setup_create**
-> SetUpMFA mfa_setup_create(data)
-
-
+> SetUpMFA mfa_setup_create(set_up_mfa)
 
 Initial step to add MFA to your account.
 
@@ -106,10 +102,10 @@ from gencove_client.models.set_up_mfa import SetUpMFA
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -133,10 +129,10 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.MfaApi(api_client)
-    data = gencove_client.SetUpMFA() # SetUpMFA |
+    set_up_mfa = gencove_client.SetUpMFA() # SetUpMFA |
 
     try:
-        api_response = api_instance.mfa_setup_create(data)
+        api_response = api_instance.mfa_setup_create(set_up_mfa)
         print("The response of MfaApi->mfa_setup_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -150,7 +146,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**SetUpMFA**](SetUpMFA.md)|  |
+ **set_up_mfa** | [**SetUpMFA**](SetUpMFA.md)|  |
 
 ### Return type
 
@@ -162,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
@@ -173,10 +169,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **mfa_status_list**
-> MFAStatus mfa_status_list()
-
-
+# **mfa_status_retrieve**
+> MFAStatus mfa_status_retrieve()
 
 Returns the status of MFA of the user.
 
@@ -191,10 +185,10 @@ from gencove_client.models.mfa_status import MFAStatus
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -220,11 +214,11 @@ with gencove_client.ApiClient(configuration) as api_client:
     api_instance = gencove_client.MfaApi(api_client)
 
     try:
-        api_response = api_instance.mfa_status_list()
-        print("The response of MfaApi->mfa_status_list:\n")
+        api_response = api_instance.mfa_status_retrieve()
+        print("The response of MfaApi->mfa_status_retrieve:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling MfaApi->mfa_status_list: %s\n" % e)
+        print("Exception when calling MfaApi->mfa_status_retrieve: %s\n" % e)
 ```
 
 
@@ -255,9 +249,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **mfa_validate_create**
-> ValidateSetUpMFA mfa_validate_create(data)
-
-
+> ValidateSetUpMFA mfa_validate_create(validate_set_up_mfa)
 
 Second step to add MFA to your account.
 
@@ -272,10 +264,10 @@ from gencove_client.models.validate_set_up_mfa import ValidateSetUpMFA
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -299,10 +291,10 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.MfaApi(api_client)
-    data = gencove_client.ValidateSetUpMFA() # ValidateSetUpMFA |
+    validate_set_up_mfa = gencove_client.ValidateSetUpMFA() # ValidateSetUpMFA |
 
     try:
-        api_response = api_instance.mfa_validate_create(data)
+        api_response = api_instance.mfa_validate_create(validate_set_up_mfa)
         print("The response of MfaApi->mfa_validate_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -316,7 +308,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**ValidateSetUpMFA**](ValidateSetUpMFA.md)|  |
+ **validate_set_up_mfa** | [**ValidateSetUpMFA**](ValidateSetUpMFA.md)|  |
 
 ### Return type
 
@@ -328,7 +320,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
