@@ -1,5 +1,6 @@
 # EventType
 
+Serializing event types using EventType choices options.
 
 ## Properties
 

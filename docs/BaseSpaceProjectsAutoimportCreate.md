@@ -1,13 +1,14 @@
 # BaseSpaceProjectsAutoimportCreate
 
+Gencove representation of BaseSpace projects create and update autoimport response.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
 **metadata** | **object** | Additional information to be attached to the Sample instances. | [optional]
-**action** | **str** |  | [optional] [readonly]
+**action** | **str** |  | [readonly]
 
 ## Example
 

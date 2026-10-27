@@ -1,5 +1,6 @@
 # SampleSheetCreate
 
+Adds samples with their uploads to the project.  Samples are being created in `create` method of this serializer. They don't exist as objects in db before that.
 
 ## Properties
 
@@ -7,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **client_id** | **str** |  |
 **fastq** | [**FastqsNestedCreate**](FastqsNestedCreate.md) |  |
-**sample** | **str** |  | [optional] [readonly]
+**sample** | **UUID** |  | [readonly]
 
 ## Example
 

@@ -1,22 +1,20 @@
 # gencove_client.BasespaceApi
 
-All URIs are relative to *https://api.gencove.com/api/v2*
+All URIs are relative to *https://api.gencove.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**basespace_biosamples_import_create**](BasespaceApi.md#basespace_biosamples_import_create) | **POST** /basespace-biosamples-import/ |
-[**basespace_project_biosamples_read**](BasespaceApi.md#basespace_project_biosamples_read) | **GET** /basespace-project-biosamples/{basespace_project_id} |
-[**basespace_projects_autoimport_create**](BasespaceApi.md#basespace_projects_autoimport_create) | **POST** /basespace-projects-autoimport/ |
-[**basespace_projects_autoimport_delete**](BasespaceApi.md#basespace_projects_autoimport_delete) | **DELETE** /basespace-projects-autoimport/{basespace_project_import_id} |
-[**basespace_projects_autoimport_list**](BasespaceApi.md#basespace_projects_autoimport_list) | **GET** /basespace-projects-autoimport/ |
-[**basespace_projects_import_create**](BasespaceApi.md#basespace_projects_import_create) | **POST** /basespace-projects-import/ |
-[**basespace_projects_list**](BasespaceApi.md#basespace_projects_list) | **GET** /basespace-projects/ |
+[**basespace_biosamples_import_create**](BasespaceApi.md#basespace_biosamples_import_create) | **POST** /api/v2/basespace-biosamples-import/ |
+[**basespace_project_biosamples_list**](BasespaceApi.md#basespace_project_biosamples_list) | **GET** /api/v2/basespace-project-biosamples/{basespace_project_id} |
+[**basespace_projects_autoimport_create**](BasespaceApi.md#basespace_projects_autoimport_create) | **POST** /api/v2/basespace-projects-autoimport/ |
+[**basespace_projects_autoimport_destroy**](BasespaceApi.md#basespace_projects_autoimport_destroy) | **DELETE** /api/v2/basespace-projects-autoimport/{basespace_project_import_id} |
+[**basespace_projects_autoimport_list**](BasespaceApi.md#basespace_projects_autoimport_list) | **GET** /api/v2/basespace-projects-autoimport/ |
+[**basespace_projects_import_create**](BasespaceApi.md#basespace_projects_import_create) | **POST** /api/v2/basespace-projects-import/ |
+[**basespace_projects_list**](BasespaceApi.md#basespace_projects_list) | **GET** /api/v2/basespace-projects/ |
 
 
 # **basespace_biosamples_import_create**
-> BaseSpaceBioSamplesImport basespace_biosamples_import_create(data)
-
-
+> BaseSpaceBioSamplesImport basespace_biosamples_import_create(base_space_bio_samples_import)
 
 Add BaseSpace biosamples to a Gencove project.
 
@@ -31,10 +29,10 @@ from gencove_client.models.base_space_bio_samples_import import BaseSpaceBioSamp
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -58,10 +56,10 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.BasespaceApi(api_client)
-    data = gencove_client.BaseSpaceBioSamplesImport() # BaseSpaceBioSamplesImport |
+    base_space_bio_samples_import = gencove_client.BaseSpaceBioSamplesImport() # BaseSpaceBioSamplesImport |
 
     try:
-        api_response = api_instance.basespace_biosamples_import_create(data)
+        api_response = api_instance.basespace_biosamples_import_create(base_space_bio_samples_import)
         print("The response of BasespaceApi->basespace_biosamples_import_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -75,7 +73,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**BaseSpaceBioSamplesImport**](BaseSpaceBioSamplesImport.md)|  |
+ **base_space_bio_samples_import** | [**BaseSpaceBioSamplesImport**](BaseSpaceBioSamplesImport.md)|  |
 
 ### Return type
 
@@ -87,7 +85,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
@@ -98,10 +96,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **basespace_project_biosamples_read**
-> BasespaceProjectBiosamplesRead200Response basespace_project_biosamples_read(basespace_project_id, sort_by=sort_by, sort_order=sort_order)
-
-
+# **basespace_project_biosamples_list**
+> PaginatedBaseSpaceBioSampleList basespace_project_biosamples_list(basespace_project_id, limit=limit, offset=offset, sort_by=sort_by, sort_order=sort_order)
 
 List currently logged in user's biosamples in a BaseSpace project.
 
@@ -112,14 +108,14 @@ List currently logged in user's biosamples in a BaseSpace project.
 
 ```python
 import gencove_client
-from gencove_client.models.basespace_project_biosamples_read200_response import BasespaceProjectBiosamplesRead200Response
+from gencove_client.models.paginated_base_space_bio_sample_list import PaginatedBaseSpaceBioSampleList
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -144,15 +140,17 @@ with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.BasespaceApi(api_client)
     basespace_project_id = 'basespace_project_id_example' # str |
+    limit = 56 # int | Number of results to return per page. (optional)
+    offset = 56 # int | The initial index from which to return the results. (optional)
     sort_by = 'sort_by_example' # str | Sort results (optional)
     sort_order = 'sort_order_example' # str | Sort direction (optional)
 
     try:
-        api_response = api_instance.basespace_project_biosamples_read(basespace_project_id, sort_by=sort_by, sort_order=sort_order)
-        print("The response of BasespaceApi->basespace_project_biosamples_read:\n")
+        api_response = api_instance.basespace_project_biosamples_list(basespace_project_id, limit=limit, offset=offset, sort_by=sort_by, sort_order=sort_order)
+        print("The response of BasespaceApi->basespace_project_biosamples_list:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling BasespaceApi->basespace_project_biosamples_read: %s\n" % e)
+        print("Exception when calling BasespaceApi->basespace_project_biosamples_list: %s\n" % e)
 ```
 
 
@@ -163,12 +161,14 @@ with gencove_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **basespace_project_id** | **str**|  |
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
  **sort_by** | **str**| Sort results | [optional]
  **sort_order** | **str**| Sort direction | [optional]
 
 ### Return type
 
-[**BasespaceProjectBiosamplesRead200Response**](BasespaceProjectBiosamplesRead200Response.md)
+[**PaginatedBaseSpaceBioSampleList**](PaginatedBaseSpaceBioSampleList.md)
 
 ### Authorization
 
@@ -188,9 +188,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **basespace_projects_autoimport_create**
-> BaseSpaceProjectsAutoimportCreate basespace_projects_autoimport_create(data)
-
-
+> BaseSpaceProjectsAutoimportCreate basespace_projects_autoimport_create(base_space_projects_autoimport)
 
 Creates new autoimport job, if the job already exists updates metadata.
 
@@ -206,10 +204,10 @@ from gencove_client.models.base_space_projects_autoimport_create import BaseSpac
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -233,10 +231,10 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.BasespaceApi(api_client)
-    data = gencove_client.BaseSpaceProjectsAutoimport() # BaseSpaceProjectsAutoimport |
+    base_space_projects_autoimport = gencove_client.BaseSpaceProjectsAutoimport() # BaseSpaceProjectsAutoimport |
 
     try:
-        api_response = api_instance.basespace_projects_autoimport_create(data)
+        api_response = api_instance.basespace_projects_autoimport_create(base_space_projects_autoimport)
         print("The response of BasespaceApi->basespace_projects_autoimport_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -250,7 +248,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**BaseSpaceProjectsAutoimport**](BaseSpaceProjectsAutoimport.md)|  |
+ **base_space_projects_autoimport** | [**BaseSpaceProjectsAutoimport**](BaseSpaceProjectsAutoimport.md)|  |
 
 ### Return type
 
@@ -262,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
@@ -273,10 +271,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **basespace_projects_autoimport_delete**
-> basespace_projects_autoimport_delete(basespace_project_import_id)
-
-
+# **basespace_projects_autoimport_destroy**
+> basespace_projects_autoimport_destroy(basespace_project_import_id)
 
 ### Example
 
@@ -288,10 +284,10 @@ import gencove_client
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -315,12 +311,12 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.BasespaceApi(api_client)
-    basespace_project_import_id = 'basespace_project_import_id_example' # str |
+    basespace_project_import_id = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID |
 
     try:
-        api_instance.basespace_projects_autoimport_delete(basespace_project_import_id)
+        api_instance.basespace_projects_autoimport_destroy(basespace_project_import_id)
     except Exception as e:
-        print("Exception when calling BasespaceApi->basespace_projects_autoimport_delete: %s\n" % e)
+        print("Exception when calling BasespaceApi->basespace_projects_autoimport_destroy: %s\n" % e)
 ```
 
 
@@ -330,7 +326,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **basespace_project_import_id** | **str**|  |
+ **basespace_project_import_id** | **UUID**|  |
 
 ### Return type
 
@@ -349,14 +345,12 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** |  |  -  |
+**204** | No response body |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **basespace_projects_autoimport_list**
-> BasespaceProjectsAutoimportList200Response basespace_projects_autoimport_list()
-
-
+> PaginatedBaseSpaceProjectsAutoimportList basespace_projects_autoimport_list(limit=limit, offset=offset)
 
 ### Example
 
@@ -365,14 +359,14 @@ void (empty response body)
 
 ```python
 import gencove_client
-from gencove_client.models.basespace_projects_autoimport_list200_response import BasespaceProjectsAutoimportList200Response
+from gencove_client.models.paginated_base_space_projects_autoimport_list import PaginatedBaseSpaceProjectsAutoimportList
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -396,9 +390,11 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.BasespaceApi(api_client)
+    limit = 56 # int | Number of results to return per page. (optional)
+    offset = 56 # int | The initial index from which to return the results. (optional)
 
     try:
-        api_response = api_instance.basespace_projects_autoimport_list()
+        api_response = api_instance.basespace_projects_autoimport_list(limit=limit, offset=offset)
         print("The response of BasespaceApi->basespace_projects_autoimport_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -409,11 +405,15 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**BasespaceProjectsAutoimportList200Response**](BasespaceProjectsAutoimportList200Response.md)
+[**PaginatedBaseSpaceProjectsAutoimportList**](PaginatedBaseSpaceProjectsAutoimportList.md)
 
 ### Authorization
 
@@ -433,9 +433,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **basespace_projects_import_create**
-> BaseSpaceProjectsImport basespace_projects_import_create(data)
-
-
+> BaseSpaceProjectsImport basespace_projects_import_create(base_space_projects_import)
 
 Add all BaseSpace biosamples from BaseSpace projects to Gencove project.
 
@@ -450,10 +448,10 @@ from gencove_client.models.base_space_projects_import import BaseSpaceProjectsIm
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -477,10 +475,10 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.BasespaceApi(api_client)
-    data = gencove_client.BaseSpaceProjectsImport() # BaseSpaceProjectsImport |
+    base_space_projects_import = gencove_client.BaseSpaceProjectsImport() # BaseSpaceProjectsImport |
 
     try:
-        api_response = api_instance.basespace_projects_import_create(data)
+        api_response = api_instance.basespace_projects_import_create(base_space_projects_import)
         print("The response of BasespaceApi->basespace_projects_import_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -494,7 +492,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**BaseSpaceProjectsImport**](BaseSpaceProjectsImport.md)|  |
+ **base_space_projects_import** | [**BaseSpaceProjectsImport**](BaseSpaceProjectsImport.md)|  |
 
 ### Return type
 
@@ -506,7 +504,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
@@ -518,9 +516,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **basespace_projects_list**
-> BasespaceProjectsList200Response basespace_projects_list(sort_by=sort_by, sort_order=sort_order)
-
-
+> PaginatedBaseSpaceProjectList basespace_projects_list(limit=limit, offset=offset, sort_by=sort_by, sort_order=sort_order)
 
 List currently logged in user's BaseSpace projects.
 
@@ -531,14 +527,14 @@ List currently logged in user's BaseSpace projects.
 
 ```python
 import gencove_client
-from gencove_client.models.basespace_projects_list200_response import BasespaceProjectsList200Response
+from gencove_client.models.paginated_base_space_project_list import PaginatedBaseSpaceProjectList
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -562,11 +558,13 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.BasespaceApi(api_client)
+    limit = 56 # int | Number of results to return per page. (optional)
+    offset = 56 # int | The initial index from which to return the results. (optional)
     sort_by = 'sort_by_example' # str | Sort results (optional)
     sort_order = 'sort_order_example' # str | Sort direction (optional)
 
     try:
-        api_response = api_instance.basespace_projects_list(sort_by=sort_by, sort_order=sort_order)
+        api_response = api_instance.basespace_projects_list(limit=limit, offset=offset, sort_by=sort_by, sort_order=sort_order)
         print("The response of BasespaceApi->basespace_projects_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -580,12 +578,14 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
  **sort_by** | **str**| Sort results | [optional]
  **sort_order** | **str**| Sort direction | [optional]
 
 ### Return type
 
-[**BasespaceProjectsList200Response**](BasespaceProjectsList200Response.md)
+[**PaginatedBaseSpaceProjectList**](PaginatedBaseSpaceProjectList.md)
 
 ### Authorization
 

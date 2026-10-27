@@ -1,12 +1,13 @@
 # ValidateSetUpMFA
 
+Mixin to add token validation to serializers.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **token** | **str** |  |
-**backup_tokens** | **List[Optional[str]]** |  | [optional] [readonly]
+**backup_tokens** | **List[object]** |  | [readonly]
 
 ## Example
 

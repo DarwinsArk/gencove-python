@@ -1,16 +1,17 @@
 # ProjectUsers
 
+Read roles out of a mapping preloaded by the list serializer.  ``preloaded_roles`` holds the roles of every object being serialized while a list is serialized, and stays None when a single object is serialized, in which case every role is looked up on its own.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
-**email** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
+**email** | **str** |  | [readonly]
 **is_active** | **bool** | Designates whether this user should be treated as active. Unselect this instead of deleting accounts. | [optional]
 **name** | **str** |  | [optional]
-**roles** | [**Dict[str, UserRoleObject]**](UserRoleObject.md) | Roles for the project in the organization. | [optional] [readonly]
-**is_support** | **bool** | Designates whether this user should be treated as a support. | [optional] [readonly]
+**roles** | [**Dict[str, UserRoleObject]**](UserRoleObject.md) | Roles for the project in the organization. | [readonly]
+**is_support** | **bool** | Designates whether this user should be treated as a support. | [readonly]
 
 ## Example
 

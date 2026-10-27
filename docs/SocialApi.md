@@ -1,18 +1,16 @@
 # gencove_client.SocialApi
 
-All URIs are relative to *https://api.gencove.com/api/v2*
+All URIs are relative to *https://api.gencove.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**social_disconnect_create**](SocialApi.md#social_disconnect_create) | **POST** /social-disconnect/ |
-[**social_providers_list**](SocialApi.md#social_providers_list) | **GET** /social-providers/ |
-[**social_signup_create**](SocialApi.md#social_signup_create) | **POST** /social-signup/ | Associate Social user with logged in Django user.
+[**social_disconnect_create**](SocialApi.md#social_disconnect_create) | **POST** /api/v2/social-disconnect/ |
+[**social_providers_list**](SocialApi.md#social_providers_list) | **GET** /api/v2/social-providers/ |
+[**social_signup_create**](SocialApi.md#social_signup_create) | **POST** /api/v2/social-signup/ |
 
 
 # **social_disconnect_create**
-> SocialDisconnect social_disconnect_create(data)
-
-
+> SocialDisconnect social_disconnect_create(social_disconnect)
 
 Disconnect given providers' social account from current user.
 
@@ -27,10 +25,10 @@ from gencove_client.models.social_disconnect import SocialDisconnect
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -54,10 +52,10 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.SocialApi(api_client)
-    data = gencove_client.SocialDisconnect() # SocialDisconnect |
+    social_disconnect = gencove_client.SocialDisconnect() # SocialDisconnect |
 
     try:
-        api_response = api_instance.social_disconnect_create(data)
+        api_response = api_instance.social_disconnect_create(social_disconnect)
         print("The response of SocialApi->social_disconnect_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -71,7 +69,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**SocialDisconnect**](SocialDisconnect.md)|  |
+ **social_disconnect** | [**SocialDisconnect**](SocialDisconnect.md)|  |
 
 ### Return type
 
@@ -83,23 +81,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** |  |  -  |
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **social_providers_list**
-> SocialProvidersList200Response social_providers_list(name=name)
+> PaginatedSocialProviderList social_providers_list(limit=limit, name=name, offset=offset)
 
-
-
-Return all available social providers, their autorization urls and user connected accounts.
+Return all available social providers, their autorization urls and user
+connected accounts.
 
 ### Example
 
@@ -108,14 +105,14 @@ Return all available social providers, their autorization urls and user connecte
 
 ```python
 import gencove_client
-from gencove_client.models.social_providers_list200_response import SocialProvidersList200Response
+from gencove_client.models.paginated_social_provider_list import PaginatedSocialProviderList
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -139,10 +136,12 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.SocialApi(api_client)
+    limit = 56 # int | Number of results to return per page. (optional)
     name = 'name_example' # str | Filter social providers by name (optional)
+    offset = 56 # int | The initial index from which to return the results. (optional)
 
     try:
-        api_response = api_instance.social_providers_list(name=name)
+        api_response = api_instance.social_providers_list(limit=limit, name=name, offset=offset)
         print("The response of SocialApi->social_providers_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -156,11 +155,13 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **limit** | **int**| Number of results to return per page. | [optional]
  **name** | **str**| Filter social providers by name | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
 
 ### Return type
 
-[**SocialProvidersList200Response**](SocialProvidersList200Response.md)
+[**PaginatedSocialProviderList**](PaginatedSocialProviderList.md)
 
 ### Authorization
 
@@ -180,11 +181,19 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **social_signup_create**
-> SocialSignUp social_signup_create(data)
+> SocialSignUp social_signup_create(social_sign_up)
 
 Associate Social user with logged in Django user.
 
-In social provider's config, `redirect_uri` or a similar setting should be pointed to a url managed by the frontend app. Frontend app should pass on the info from social provider ie. ```     {         \"provider\": \"basespace\",         \"code\": \"foobar\"     } ```
+In social provider's config, `redirect_uri` or a similar setting should
+be pointed to a url managed by the frontend app.
+Frontend app should pass on the info from social provider ie.
+```
+    {
+        "provider": "basespace",
+        "code": "foobar"
+    }
+```
 
 ### Example
 
@@ -197,10 +206,10 @@ from gencove_client.models.social_sign_up import SocialSignUp
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -224,11 +233,10 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.SocialApi(api_client)
-    data = gencove_client.SocialSignUp() # SocialSignUp |
+    social_sign_up = gencove_client.SocialSignUp() # SocialSignUp |
 
     try:
-        # Associate Social user with logged in Django user.
-        api_response = api_instance.social_signup_create(data)
+        api_response = api_instance.social_signup_create(social_sign_up)
         print("The response of SocialApi->social_signup_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -242,7 +250,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**SocialSignUp**](SocialSignUp.md)|  |
+ **social_sign_up** | [**SocialSignUp**](SocialSignUp.md)|  |
 
 ### Return type
 
@@ -254,13 +262,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** |  |  -  |
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

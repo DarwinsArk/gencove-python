@@ -1,11 +1,12 @@
 # MFAStatus
 
+Serializer just to use in swagger schema.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**has_mfa_device** | **bool** |  | [optional] [readonly]
+**has_mfa_device** | **bool** |  | [readonly]
 
 ## Example
 

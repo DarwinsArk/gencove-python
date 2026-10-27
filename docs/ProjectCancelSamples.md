@@ -1,11 +1,12 @@
 # ProjectCancelSamples
 
+Serializer for canceling samples submitted to a project.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sample_ids** | **List[str]** |  |
+**sample_ids** | **List[UUID]** |  |
 
 ## Example
 

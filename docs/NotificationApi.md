@@ -1,18 +1,17 @@
 # gencove_client.NotificationApi
 
-All URIs are relative to *https://api.gencove.com/api/v2*
+All URIs are relative to *https://api.gencove.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**notifications_read**](NotificationApi.md#notifications_read) | **GET** /notifications/{notification_id} |
+[**notifications_retrieve**](NotificationApi.md#notifications_retrieve) | **GET** /api/v2/notifications/{notification_id} |
 
 
-# **notifications_read**
-> ProjectSubscriptionNotificationDetail notifications_read(notification_id)
+# **notifications_retrieve**
+> ProjectSubscriptionNotificationDetail notifications_retrieve(notification_id)
 
-
-
-List all available subscriptions for given project or create a new subscription.
+List all available subscriptions for given project or create a new
+subscription.
 
 ### Example
 
@@ -25,10 +24,10 @@ from gencove_client.models.project_subscription_notification_detail import Proje
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -52,14 +51,14 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.NotificationApi(api_client)
-    notification_id = 'notification_id_example' # str |
+    notification_id = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID |
 
     try:
-        api_response = api_instance.notifications_read(notification_id)
-        print("The response of NotificationApi->notifications_read:\n")
+        api_response = api_instance.notifications_retrieve(notification_id)
+        print("The response of NotificationApi->notifications_retrieve:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling NotificationApi->notifications_read: %s\n" % e)
+        print("Exception when calling NotificationApi->notifications_retrieve: %s\n" % e)
 ```
 
 
@@ -69,7 +68,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **notification_id** | **str**|  |
+ **notification_id** | **UUID**|  |
 
 ### Return type
 

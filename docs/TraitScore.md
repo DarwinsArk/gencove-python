@@ -1,5 +1,6 @@
 # TraitScore
 
+Serializer trait score and associated trait metadata models.  This is not really optimal, since it pulls data from multiple parent tables for objects.
 
 ## Properties
 
@@ -9,6 +10,7 @@ Name | Type | Description | Notes
 **trait_distribution** | [**TraitDistribution**](TraitDistribution.md) |  |
 **trait** | [**Trait**](Trait.md) |  |
 **trait_unit** | [**TraitUnit**](TraitUnit.md) |  |
+**risk** | **str** | Return risk level for the trait score.  Returns:     Optional[str]: \&quot;high_risk\&quot; if the value is greater than or equal to the risk threshold,     \&quot;not_high_risk\&quot; otherwise. If the risk threshold or percentile is None, return None. | [readonly]
 
 ## Example
 

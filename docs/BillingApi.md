@@ -1,16 +1,14 @@
 # gencove_client.BillingApi
 
-All URIs are relative to *https://api.gencove.com/api/v2*
+All URIs are relative to *https://api.gencove.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**billing_portal_create**](BillingApi.md#billing_portal_create) | **POST** /billing-portal/ |
+[**billing_portal_create**](BillingApi.md#billing_portal_create) | **POST** /api/v2/billing-portal/ |
 
 
 # **billing_portal_create**
-> BillingPortal billing_portal_create(data)
-
-
+> BillingPortal billing_portal_create(billing_portal=billing_portal)
 
 Retrieve currently logged in user's Stripe customer portal url.
 
@@ -25,10 +23,10 @@ from gencove_client.models.billing_portal import BillingPortal
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -52,10 +50,10 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.BillingApi(api_client)
-    data = gencove_client.BillingPortal() # BillingPortal |
+    billing_portal = gencove_client.BillingPortal() # BillingPortal |  (optional)
 
     try:
-        api_response = api_instance.billing_portal_create(data)
+        api_response = api_instance.billing_portal_create(billing_portal=billing_portal)
         print("The response of BillingApi->billing_portal_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -69,7 +67,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**BillingPortal**](BillingPortal.md)|  |
+ **billing_portal** | [**BillingPortal**](BillingPortal.md)|  | [optional]
 
 ### Return type
 
@@ -81,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details

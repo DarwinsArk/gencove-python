@@ -1,16 +1,17 @@
 # ProjectSubscription
 
+Subscription serializer where the scope is a project.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
 **name** | **str** | User identifiable name, if left empty default name with a timestamp is used | [optional]
-**project** | **str** |  | [optional] [readonly]
+**project** | **UUID** |  | [readonly]
 **target** | **str** | URL if webhook, e-mail address if email |
-**protocol** | **str** |  | [optional] [readonly]
-**event_types** | **List[Optional[str]]** | event types which will be delivered for current subscription | [optional] [readonly]
+**protocol** | [**ProtocolEnum**](ProtocolEnum.md) | How is the notification delivered  * &#x60;webhook&#x60; - webhook * &#x60;email&#x60; - email | [readonly]
+**event_types** | **List[object]** | event types which will be delivered for current subscription | [readonly]
 **has_secret** | **bool** | Is webhook secret set |
 
 ## Example

@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
-**status** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
+**status** | **str** |  | [readonly]
 **stop_after_inactivity_hours** | **int** | After how many hours of inactivity should an explorer instance be stopped. None -&gt; adhere to org setting. 0 -&gt; do not stop instance. Any number -&gt; amount of hours to wait before stopping instance. If org.explorer_override_stop_after_inactivity_hours is True, this attribute doesn&#39;t have any effects. | [optional]
 
 ## Example

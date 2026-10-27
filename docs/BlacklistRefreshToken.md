@@ -1,5 +1,6 @@
 # BlacklistRefreshToken
 
+Blacklist provided JWT refresh token.
 
 ## Properties
 

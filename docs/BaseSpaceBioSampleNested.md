@@ -1,5 +1,6 @@
 # BaseSpaceBioSampleNested
 
+Single BaseSpace biosample to be imported.
 
 ## Properties
 
@@ -7,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **basespace_id** | **str** |  |
 **client_id** | **str** |  |
-**sample** | **str** |  | [optional] [readonly]
+**sample** | **UUID** |  | [readonly]
 
 ## Example
 

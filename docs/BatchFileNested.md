@@ -1,15 +1,16 @@
 # BatchFileNested
 
+Sets batch.id as filename in file download_url.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
 **s3_path** | **str** | S3 object key | [optional]
 **size** | **int** | Size as reported by AWS in bytes | [optional]
-**download_url** | **str** | Download url | [optional] [readonly]
-**file_type** | **str** |  | [optional] [readonly]
+**download_url** | **str** | Download url | [readonly]
+**file_type** | **str** | File extension | [readonly]
 **checksum_sha256** | **str** | Object&#39;s sha256 Checksum | [optional]
 **shadow_mode** | **bool** | If true, file is only accessible by organizations with shadow mode access enabled. | [optional]
 

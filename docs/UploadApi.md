@@ -1,22 +1,20 @@
 # gencove_client.UploadApi
 
-All URIs are relative to *https://api.gencove.com/api/v2*
+All URIs are relative to *https://api.gencove.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**upload_credentials_create**](UploadApi.md#upload_credentials_create) | **POST** /upload-credentials/ |
-[**uploads_delete_unassigned_create**](UploadApi.md#uploads_delete_unassigned_create) | **POST** /uploads-delete-unassigned/ |
-[**uploads_list**](UploadApi.md#uploads_list) | **GET** /uploads/ |
-[**uploads_post_data_create**](UploadApi.md#uploads_post_data_create) | **POST** /uploads-post-data/ |
-[**uploads_presigned_post_data_create**](UploadApi.md#uploads_presigned_post_data_create) | **POST** /uploads-presigned-post-data/ |
-[**uploads_read**](UploadApi.md#uploads_read) | **GET** /uploads/{upload_id} |
-[**uploads_url_create**](UploadApi.md#uploads_url_create) | **POST** /uploads-url/ |
+[**upload_credentials_create**](UploadApi.md#upload_credentials_create) | **POST** /api/v2/upload-credentials/ |
+[**uploads_delete_unassigned_create**](UploadApi.md#uploads_delete_unassigned_create) | **POST** /api/v2/uploads-delete-unassigned/ |
+[**uploads_list**](UploadApi.md#uploads_list) | **GET** /api/v2/uploads/ |
+[**uploads_post_data_create**](UploadApi.md#uploads_post_data_create) | **POST** /api/v2/uploads-post-data/ |
+[**uploads_presigned_post_data_create**](UploadApi.md#uploads_presigned_post_data_create) | **POST** /api/v2/uploads-presigned-post-data/ |
+[**uploads_retrieve**](UploadApi.md#uploads_retrieve) | **GET** /api/v2/uploads/{upload_id} |
+[**uploads_url_create**](UploadApi.md#uploads_url_create) | **POST** /api/v2/uploads-url/ |
 
 
 # **upload_credentials_create**
 > GetUploadCredentialsResponse upload_credentials_create()
-
-
 
 ### Example
 
@@ -29,10 +27,10 @@ from gencove_client.models.get_upload_credentials_response import GetUploadCrede
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -93,9 +91,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **uploads_delete_unassigned_create**
-> DeletedUnassignedUploads uploads_delete_unassigned_create(data)
-
-
+> DeletedUnassignedUploads uploads_delete_unassigned_create(deleted_unassigned_uploads)
 
 ### Example
 
@@ -108,10 +104,10 @@ from gencove_client.models.deleted_unassigned_uploads import DeletedUnassignedUp
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -135,10 +131,10 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.UploadApi(api_client)
-    data = gencove_client.DeletedUnassignedUploads() # DeletedUnassignedUploads |
+    deleted_unassigned_uploads = gencove_client.DeletedUnassignedUploads() # DeletedUnassignedUploads |
 
     try:
-        api_response = api_instance.uploads_delete_unassigned_create(data)
+        api_response = api_instance.uploads_delete_unassigned_create(deleted_unassigned_uploads)
         print("The response of UploadApi->uploads_delete_unassigned_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -152,7 +148,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**DeletedUnassignedUploads**](DeletedUnassignedUploads.md)|  |
+ **deleted_unassigned_uploads** | [**DeletedUnassignedUploads**](DeletedUnassignedUploads.md)|  |
 
 ### Return type
 
@@ -164,21 +160,19 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** |  |  -  |
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **uploads_list**
-> UploadsList200Response uploads_list(search=search, status=status)
-
-
+> PaginatedUploadList uploads_list(limit=limit, offset=offset, search=search, status=status)
 
 Retrieve list of user uploads.
 
@@ -189,14 +183,14 @@ Retrieve list of user uploads.
 
 ```python
 import gencove_client
-from gencove_client.models.uploads_list200_response import UploadsList200Response
+from gencove_client.models.paginated_upload_list import PaginatedUploadList
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -220,11 +214,13 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.UploadApi(api_client)
+    limit = 56 # int | Number of results to return per page. (optional)
+    offset = 56 # int | The initial index from which to return the results. (optional)
     search = 'search_example' # str | Search uploads by id (optional)
     status = 'status_example' # str | Filter uploads by upload statuses (optional)
 
     try:
-        api_response = api_instance.uploads_list(search=search, status=status)
+        api_response = api_instance.uploads_list(limit=limit, offset=offset, search=search, status=status)
         print("The response of UploadApi->uploads_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -238,12 +234,14 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **limit** | **int**| Number of results to return per page. | [optional]
+ **offset** | **int**| The initial index from which to return the results. | [optional]
  **search** | **str**| Search uploads by id | [optional]
  **status** | **str**| Filter uploads by upload statuses | [optional]
 
 ### Return type
 
-[**UploadsList200Response**](UploadsList200Response.md)
+[**PaginatedUploadList**](PaginatedUploadList.md)
 
 ### Authorization
 
@@ -263,11 +261,10 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **uploads_post_data_create**
-> UploadPostDataResponse uploads_post_data_create(data)
+> UploadPostDataResponse uploads_post_data_create(upload_post_data_create)
 
-
-
-Returns info about initialized file upload based on posted file destination path.
+Returns info about initialized file upload based on posted file
+destination path.
 
 ### Example
 
@@ -281,10 +278,10 @@ from gencove_client.models.upload_post_data_response import UploadPostDataRespon
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -308,10 +305,10 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.UploadApi(api_client)
-    data = gencove_client.UploadPostDataCreate() # UploadPostDataCreate |
+    upload_post_data_create = gencove_client.UploadPostDataCreate() # UploadPostDataCreate |
 
     try:
-        api_response = api_instance.uploads_post_data_create(data)
+        api_response = api_instance.uploads_post_data_create(upload_post_data_create)
         print("The response of UploadApi->uploads_post_data_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -325,7 +322,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**UploadPostDataCreate**](UploadPostDataCreate.md)|  |
+ **upload_post_data_create** | [**UploadPostDataCreate**](UploadPostDataCreate.md)|  |
 
 ### Return type
 
@@ -337,7 +334,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
@@ -349,11 +346,10 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **uploads_presigned_post_data_create**
-> UploadPresignedPostDataResponse uploads_presigned_post_data_create(data)
+> UploadPresignedPostDataResponse uploads_presigned_post_data_create(upload_post_data_create)
 
-
-
-Returns S3 presigned parameters needed for file upload as response for given file attributes.
+Returns S3 presigned parameters needed for file upload as response for
+given file attributes.
 
 ### Example
 
@@ -367,10 +363,10 @@ from gencove_client.models.upload_presigned_post_data_response import UploadPres
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -394,10 +390,10 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.UploadApi(api_client)
-    data = gencove_client.UploadPostDataCreate() # UploadPostDataCreate |
+    upload_post_data_create = gencove_client.UploadPostDataCreate() # UploadPostDataCreate |
 
     try:
-        api_response = api_instance.uploads_presigned_post_data_create(data)
+        api_response = api_instance.uploads_presigned_post_data_create(upload_post_data_create)
         print("The response of UploadApi->uploads_presigned_post_data_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -411,7 +407,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**UploadPostDataCreate**](UploadPostDataCreate.md)|  |
+ **upload_post_data_create** | [**UploadPostDataCreate**](UploadPostDataCreate.md)|  |
 
 ### Return type
 
@@ -423,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
@@ -434,10 +430,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **uploads_read**
-> Upload uploads_read(upload_id)
-
-
+# **uploads_retrieve**
+> Upload uploads_retrieve(upload_id)
 
 Fetch single upload details
 
@@ -452,10 +446,10 @@ from gencove_client.models.upload import Upload
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -479,14 +473,14 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.UploadApi(api_client)
-    upload_id = 'upload_id_example' # str |
+    upload_id = UUID('38400000-8cf0-11bd-b23e-10b96e4ef00d') # UUID |
 
     try:
-        api_response = api_instance.uploads_read(upload_id)
-        print("The response of UploadApi->uploads_read:\n")
+        api_response = api_instance.uploads_retrieve(upload_id)
+        print("The response of UploadApi->uploads_retrieve:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling UploadApi->uploads_read: %s\n" % e)
+        print("Exception when calling UploadApi->uploads_retrieve: %s\n" % e)
 ```
 
 
@@ -496,7 +490,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upload_id** | **str**|  |
+ **upload_id** | **UUID**|  |
 
 ### Return type
 
@@ -520,9 +514,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **uploads_url_create**
-> UploadURLResponse uploads_url_create(data)
-
-
+> UploadURLResponse uploads_url_create(upload_url_create)
 
 ### Example
 
@@ -536,10 +528,10 @@ from gencove_client.models.upload_url_response import UploadURLResponse
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -563,10 +555,10 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.UploadApi(api_client)
-    data = gencove_client.UploadURLCreate() # UploadURLCreate |
+    upload_url_create = gencove_client.UploadURLCreate() # UploadURLCreate |
 
     try:
-        api_response = api_instance.uploads_url_create(data)
+        api_response = api_instance.uploads_url_create(upload_url_create)
         print("The response of UploadApi->uploads_url_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -580,7 +572,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**UploadURLCreate**](UploadURLCreate.md)|  |
+ **upload_url_create** | [**UploadURLCreate**](UploadURLCreate.md)|  |
 
 ### Return type
 
@@ -592,7 +584,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details

@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
-**status** | **str** |  | [optional]
+**id** | **UUID** |  | [readonly]
+**status** | [**ProjectShareStatusStatusEnum**](ProjectShareStatusStatusEnum.md) |  | [optional]
 **note** | **str** |  | [optional]
 **created** | **datetime** |  | [optional]
 

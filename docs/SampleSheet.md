@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **client_id** | **str** |  |
-**fastq** | [**UploadNestedList**](UploadNestedList.md) |  | [optional]
+**fastq** | [**UploadNestedList**](UploadNestedList.md) | Uploaded fastq | [readonly]
 
 ## Example
 

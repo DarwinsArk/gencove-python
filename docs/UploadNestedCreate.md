@@ -1,11 +1,12 @@
 # UploadNestedCreate
 
+Used for adding samples using sample sheet to a project.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**upload** | **str** |  |
+**upload** | **UUID** |  |
 
 ## Example
 

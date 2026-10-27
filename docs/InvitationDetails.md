@@ -1,13 +1,14 @@
 # InvitationDetails
 
+Represent invitation for invitee.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**token** | **str** |  | [optional] [readonly]
-**last_status** | [**InvitationStatus**](InvitationStatus.md) |  | [optional]
-**expires** | **datetime** |  | [optional] [readonly]
+**token** | **str** |  | [readonly]
+**last_status** | [**InvitationStatus**](InvitationStatus.md) |  | [readonly]
+**expires** | **datetime** |  | [readonly]
 **organization** | [**InviteOrganization**](InviteOrganization.md) |  |
 **role** | **str** |  |
 

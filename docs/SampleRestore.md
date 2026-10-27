@@ -1,13 +1,14 @@
 # SampleRestore
 
+Serializer for restoring samples from archived state.  Initially samples are set as `restore_requested` and a celery task is kicked off that starts restore process by kicking off an S3 batch job and marking samples as `restore_accepted`. `restore_started` is set when S3 notification is sent on `s3:ObjectRestore:Post` event. Samples are marked as `restored` in a separate celery task once the info gets passed down by an `s3:ObjectRestore:Completed` S3 event.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sample_ids** | **List[str]** | List of sample IDs or if empty all archived samples will be used |
-**restore_group_id** | **str** |  | [optional] [readonly]
-**created** | **datetime** |  | [optional] [readonly]
+**sample_ids** | **List[UUID]** | List of sample IDs or if empty all archived samples will be used |
+**restore_group_id** | **UUID** |  | [readonly]
+**created** | **datetime** |  | [readonly]
 
 ## Example
 

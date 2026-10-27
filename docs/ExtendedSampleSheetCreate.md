@@ -1,5 +1,6 @@
 # ExtendedSampleSheetCreate
 
+Adds samples with their uploads to the project and attaches same metadata to all of them.
 
 ## Properties
 

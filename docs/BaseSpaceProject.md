@@ -1,5 +1,6 @@
 # BaseSpaceProject
 
+Gencove representation of BaseSpace project.
 
 ## Properties
 

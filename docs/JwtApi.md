@@ -1,21 +1,20 @@
 # gencove_client.JwtApi
 
-All URIs are relative to *https://api.gencove.com/api/v2*
+All URIs are relative to *https://api.gencove.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**jwt_create_create**](JwtApi.md#jwt_create_create) | **POST** /jwt-create/ |
-[**jwt_logout_create**](JwtApi.md#jwt_logout_create) | **POST** /jwt-logout/ |
-[**jwt_refresh_create**](JwtApi.md#jwt_refresh_create) | **POST** /jwt-refresh/ |
-[**jwt_verify_create**](JwtApi.md#jwt_verify_create) | **POST** /jwt-verify/ |
+[**jwt_create_create**](JwtApi.md#jwt_create_create) | **POST** /api/v2/jwt-create/ |
+[**jwt_logout_create**](JwtApi.md#jwt_logout_create) | **POST** /api/v2/jwt-logout/ |
+[**jwt_refresh_create**](JwtApi.md#jwt_refresh_create) | **POST** /api/v2/jwt-refresh/ |
+[**jwt_verify_create**](JwtApi.md#jwt_verify_create) | **POST** /api/v2/jwt-verify/ |
 
 
 # **jwt_create_create**
-> TokenPair jwt_create_create(data)
+> TokenPair jwt_create_create(otp_token_obtain_pair)
 
-
-
-Takes a set of user credentials and returns an access and refresh JSON web token pair to prove the authentication of those credentials.
+Takes a set of user credentials and returns an access and refresh JSON web
+token pair to prove the authentication of those credentials.
 
 ### Example
 
@@ -29,10 +28,10 @@ from gencove_client.models.token_pair import TokenPair
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -56,10 +55,10 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.JwtApi(api_client)
-    data = gencove_client.OTPTokenObtainPair() # OTPTokenObtainPair |
+    otp_token_obtain_pair = gencove_client.OTPTokenObtainPair() # OTPTokenObtainPair |
 
     try:
-        api_response = api_instance.jwt_create_create(data)
+        api_response = api_instance.jwt_create_create(otp_token_obtain_pair)
         print("The response of JwtApi->jwt_create_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -73,7 +72,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**OTPTokenObtainPair**](OTPTokenObtainPair.md)|  |
+ **otp_token_obtain_pair** | [**OTPTokenObtainPair**](OTPTokenObtainPair.md)|  |
 
 ### Return type
 
@@ -85,7 +84,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
@@ -97,9 +96,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **jwt_logout_create**
-> BlacklistRefreshToken jwt_logout_create(data)
-
-
+> BlacklistRefreshToken jwt_logout_create(blacklist_refresh_token)
 
 Logout user and blacklist current JWT refresh token.
 
@@ -114,10 +111,10 @@ from gencove_client.models.blacklist_refresh_token import BlacklistRefreshToken
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -141,10 +138,10 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.JwtApi(api_client)
-    data = gencove_client.BlacklistRefreshToken() # BlacklistRefreshToken |
+    blacklist_refresh_token = gencove_client.BlacklistRefreshToken() # BlacklistRefreshToken |
 
     try:
-        api_response = api_instance.jwt_logout_create(data)
+        api_response = api_instance.jwt_logout_create(blacklist_refresh_token)
         print("The response of JwtApi->jwt_logout_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -158,7 +155,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**BlacklistRefreshToken**](BlacklistRefreshToken.md)|  |
+ **blacklist_refresh_token** | [**BlacklistRefreshToken**](BlacklistRefreshToken.md)|  |
 
 ### Return type
 
@@ -170,23 +167,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** |  |  -  |
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **jwt_refresh_create**
-> TokenRefresh jwt_refresh_create(data)
+> TokenRefresh jwt_refresh_create(token_refresh)
 
-
-
-Takes a refresh type JSON web token and returns an access type JSON web token if the refresh token is valid.
+Takes a refresh type JSON web token and returns an access type JSON web
+token if the refresh token is valid.
 
 ### Example
 
@@ -199,10 +195,10 @@ from gencove_client.models.token_refresh import TokenRefresh
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -226,10 +222,10 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.JwtApi(api_client)
-    data = gencove_client.TokenRefresh() # TokenRefresh |
+    token_refresh = gencove_client.TokenRefresh() # TokenRefresh |
 
     try:
-        api_response = api_instance.jwt_refresh_create(data)
+        api_response = api_instance.jwt_refresh_create(token_refresh)
         print("The response of JwtApi->jwt_refresh_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -243,7 +239,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**TokenRefresh**](TokenRefresh.md)|  |
+ **token_refresh** | [**TokenRefresh**](TokenRefresh.md)|  |
 
 ### Return type
 
@@ -255,23 +251,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** |  |  -  |
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **jwt_verify_create**
-> TokenVerify jwt_verify_create(data)
+> TokenVerify jwt_verify_create(token_verify)
 
-
-
-Takes a token and indicates if it is valid.  This view provides no information about a token's fitness for a particular use.
+Takes a token and indicates if it is valid.  This view provides no
+information about a token's fitness for a particular use.
 
 ### Example
 
@@ -284,10 +279,10 @@ from gencove_client.models.token_verify import TokenVerify
 from gencove_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.gencove.com/api/v2
+# Defining the host is optional and defaults to https://api.gencove.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = gencove_client.Configuration(
-    host = "https://api.gencove.com/api/v2"
+    host = "https://api.gencove.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -311,10 +306,10 @@ configuration.api_key['JWT'] = os.environ["API_KEY"]
 with gencove_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = gencove_client.JwtApi(api_client)
-    data = gencove_client.TokenVerify() # TokenVerify |
+    token_verify = gencove_client.TokenVerify() # TokenVerify |
 
     try:
-        api_response = api_instance.jwt_verify_create(data)
+        api_response = api_instance.jwt_verify_create(token_verify)
         print("The response of JwtApi->jwt_verify_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -328,7 +323,7 @@ with gencove_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**TokenVerify**](TokenVerify.md)|  |
+ **token_verify** | [**TokenVerify**](TokenVerify.md)|  |
 
 ### Return type
 
@@ -340,13 +335,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** |  |  -  |
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

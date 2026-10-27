@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
 **created** | **datetime** |  | [optional]
-**user** | **str** |  |
-**last_status** | [**JobStatusNested**](JobStatusNested.md) |  | [optional]
-**up_to_date** | **bool** |  | [optional] [readonly] [default to False]
+**user** | **UUID** |  |
+**last_status** | [**JobStatusNested**](JobStatusNested.md) |  | [readonly]
+**up_to_date** | **bool** |  | [readonly] [default to False]
 
 ## Example
 

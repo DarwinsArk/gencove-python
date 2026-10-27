@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**billing_portal_url** | **str** | Billing portal URL to go to. | [optional] [readonly]
+**billing_portal_url** | **str** | Billing portal URL to go to. | [readonly]
 
 ## Example
 

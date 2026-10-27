@@ -5,17 +5,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
-**run** | **str** |  | [optional]
+**id** | **UUID** |  | [readonly]
+**run** | **UUID** |  | [optional]
 **created** | **datetime** |  | [optional]
 **hidden** | **bool** | Flag to hide the sample. | [optional]
 **modified** | **datetime** |  |
 **client_id** | **str** | Legacy: external_id |
 **physical_id** | **str** | Legacy: external_id, external_barcode and sample_barcode |
 **legacy_id** | **str** | Legacy: sample_id/member_id. Matching sample_ids from back_api app. |
-**last_status** | [**SampleStatusNested**](SampleStatusNested.md) |  | [optional]
-**archive_last_status** | [**ArchiveSampleStatus**](ArchiveSampleStatus.md) |  | [optional]
-**failed_qc** | **str** | Description of failed_qc status if present | [optional] [readonly]
+**provider_kit_id** | **str** | Kit ID printed on the sequencing kit, if one was ordered | [readonly]
+**last_status** | [**SampleStatusNested**](SampleStatusNested.md) |  | [readonly]
+**archive_last_status** | [**ArchiveSampleStatus**](ArchiveSampleStatus.md) |  | [readonly]
+**failed_qc** | **str** | Description of failed_qc status if present | [readonly]
 
 ## Example
 

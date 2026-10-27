@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **key** | **str** |  |
 **type** | **str** |  |
-**name** | **str** |  | [optional] [readonly]
-**description_markdown** | **str** |  | [optional] [readonly]
-**display_type** | **str** |  | [optional] [readonly]
-**display_only_if_failed** | **str** |  | [optional] [readonly]
+**name** | **str** |  | [readonly]
+**description_markdown** | **str** |  | [readonly]
+**display_type** | **str** |  | [readonly]
+**display_only_if_failed** | **str** |  | [readonly]
 
 ## Example
 

@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
 **email** | **str** |  | [optional]
-**last_status** | [**InvitationStatus**](InvitationStatus.md) |  | [optional]
-**expires** | **datetime** |  | [optional] [readonly]
+**last_status** | [**InvitationStatus**](InvitationStatus.md) |  | [readonly]
+**expires** | **datetime** |  | [readonly]
 **role** | **str** |  |
 
 ## Example

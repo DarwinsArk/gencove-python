@@ -1,12 +1,13 @@
 # S3URIAutoimport
 
+S3 URI auto import serializer.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
-**project_id** | **str** |  |
+**id** | **UUID** |  | [readonly]
+**project_id** | **UUID** |  |
 **s3_uri** | **str** |  |
 **metadata** | **object** |  | [optional]
 

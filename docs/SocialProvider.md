@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  |
 **authorization_uri** | **str** |  |
-**accounts** | [**List[SocialAccountNested]**](SocialAccountNested.md) | User connected social account | [optional] [readonly]
+**accounts** | [**List[SocialAccountNested]**](SocialAccountNested.md) | User connected social account | [readonly]
 
 ## Example
 

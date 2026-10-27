@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user** | **str** |  |
+**user** | **UUID** |  |
 **role** | **str** |  |
 
 ## Example

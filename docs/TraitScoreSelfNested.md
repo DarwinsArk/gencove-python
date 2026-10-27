@@ -1,5 +1,6 @@
 # TraitScoreSelfNested
 
+Serializer used to nest trait score data within other trait score serializer.
 
 ## Properties
 

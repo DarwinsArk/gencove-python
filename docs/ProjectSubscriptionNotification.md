@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] [readonly]
+**id** | **UUID** |  | [readonly]
 **created** | **datetime** |  | [optional]
 **response_status** | **int** |  | [optional]
-**notification_event_type** | **str** | notification event type | [optional] [readonly]
+**notification_event_type** | **str** | notification event type | [readonly]
 
 ## Example
 
