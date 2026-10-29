@@ -94,10 +94,10 @@ docker run --rm \
     "$GENERATOR_IMAGE" \
     generate -i /spec/openapi.json -g python -o /local \
     --package-name gencove_client \
-    --git-user-id DarwinsArk \
+    --git-user-id altissimo-hq \
     --git-repo-id gencove-python \
     --skip-validate-spec \
-    --additional-properties="packageVersion=${PACKAGE_VERSION},packageUrl=https://github.com/DarwinsArk/gencove-python,buildSystem=hatchling,disallowAdditionalPropertiesIfNotPresent=false"
+    --additional-properties="packageVersion=${PACKAGE_VERSION},packageUrl=https://github.com/altissimo-hq/gencove-python,buildSystem=hatchling,disallowAdditionalPropertiesIfNotPresent=false"
 
 trap - ERR
 
