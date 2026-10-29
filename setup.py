@@ -34,7 +34,7 @@ setup(
     description="Gencove Back API",
     author="OpenAPI Generator community",
     author_email="support@gencove.com",
-    url="https://github.com/DarwinsArk/gencove-python",
+    url="https://github.com/altissimo-hq/gencove-python",
     keywords=["OpenAPI", "OpenAPI-Generator", "Gencove Back API"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),

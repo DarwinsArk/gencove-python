@@ -1,6 +1,4 @@
 .gitignore
-.gitlab-ci.yml
-.travis.yml
 README.md
 docs/APIKey.md
 docs/AWSPresignedPostData.md

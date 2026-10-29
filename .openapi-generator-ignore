@@ -24,3 +24,5 @@
 
 # Maintained by hand; the generated version targets EOL Python releases
 .github/workflows/python.yml
+.gitlab-ci.yml
+.travis.yml

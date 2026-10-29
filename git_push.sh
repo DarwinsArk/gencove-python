@@ -14,7 +14,7 @@ if [ -z "${git_host}" ]; then
 fi
 
 if [ -z "${git_user_id}" ]; then
-    git_user_id="DarwinsArk"
+    git_user_id="altissimo-hq"
     echo "[INFO] No command line input provided. Set \${git_user_id} to ${git_user_id}"
 fi
 

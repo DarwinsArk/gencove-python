@@ -18,7 +18,7 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/DarwinsArk/gencove-python"
+Repository = "https://github.com/altissimo-hq/gencove-python"
 
 [dependency-groups]
 dev = [

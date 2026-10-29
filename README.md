@@ -23,9 +23,9 @@ with Poetry 2.2 or newer using `poetry install`, or pip 25.1 or newer using
 If the python package is hosted on a repository, you can install directly using:
 
 ```sh
-pip install git+https://github.com/DarwinsArk/gencove-python.git
+pip install git+https://github.com/altissimo-hq/gencove-python.git
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/DarwinsArk/gencove-python.git`)
+(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/altissimo-hq/gencove-python.git`)
 
 Then import the package:
 ```python
